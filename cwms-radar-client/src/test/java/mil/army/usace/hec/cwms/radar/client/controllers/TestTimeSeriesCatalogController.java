@@ -24,7 +24,7 @@ class TestTimeSeriesCatalogController extends TestController {
 
     @Test
     void testRetrieveTimeSeriesCatalog() throws IOException {
-        String collect = readJsonFile("radar/json/catalog_ts.json");
+        String collect = readJsonFile("radar/v2/json/catalog_ts.json");
         mockHttpServer.enqueue(collect);
         mockHttpServer.start();
         TimeSeriesCatalogEndpointInput input = new TimeSeriesCatalogEndpointInput()
@@ -36,7 +36,7 @@ class TestTimeSeriesCatalogController extends TestController {
         assertNotNull(catalog.getNextPage());
         assertEquals(500, catalog.getPageSize());
         assertNull(catalog.getPage());
-        assertEquals(68233, catalog.getTotal());
+        assertEquals(68239, catalog.getTotal());
         TimeSeriesCatalogEntry catalogEntry = entries.get(0);
         assertEquals("000512.%.Ave.~1Day.0.abc", catalogEntry.getTsName());
         assertEquals("000512.%.Ave.~1Day.0.abc", catalogEntry.getFullName());
@@ -46,8 +46,8 @@ class TestTimeSeriesCatalogController extends TestController {
 
     @Test
     void testRetrieveTimeSeriesCatalogPagination() throws IOException {
-        String page1Body = readJsonFile("radar/json/catalog_tspage1.json");
-        String page2Body = readJsonFile("radar/json/catalog_tspage2.json");
+        String page1Body = readJsonFile("radar/v2/json/catalog_tspage1.json");
+        String page2Body = readJsonFile("radar/v2/json/catalog_tspage2.json");
         mockHttpServer.enqueue(page1Body);
         mockHttpServer.enqueue(page2Body);
         mockHttpServer.start();
@@ -60,7 +60,7 @@ class TestTimeSeriesCatalogController extends TestController {
         assertNotNull(catalog.getNextPage());
         assertEquals(500, catalog.getPageSize());
         assertNull(catalog.getPage());
-        assertEquals(68233, catalog.getTotal());
+        assertEquals(68239, catalog.getTotal());
         TimeSeriesCatalogEntry catalogEntry = entries.get(0);
         assertEquals("000512.%.Ave.~1Day.0.abc", catalogEntry.getTsName());
         assertEquals("000512.%.Ave.~1Day.0.abc", catalogEntry.getFullName());
@@ -74,7 +74,7 @@ class TestTimeSeriesCatalogController extends TestController {
         assertNotNull(catalog.getNextPage());
         assertEquals(500, catalog.getPageSize());
         assertNull(catalog.getPage());
-        assertEquals(68233, catalog.getTotal());
+        assertEquals(68239, catalog.getTotal());
         catalogEntry = entries.get(0);
         assertEquals("16FFA636.Volt-Battery Load.Inst.1Hour.0.Ccp-Rev", catalogEntry.getTsName());
         assertEquals("16FFA636.Volt-Battery Load.Inst.1Hour.0.Ccp-Rev", catalogEntry.getFullName());
@@ -84,7 +84,7 @@ class TestTimeSeriesCatalogController extends TestController {
 
     @Test
     void testCwmsRadarDown() throws IOException {
-        String collect = readJsonFile("radar/json/catalog_ts.json");
+        String collect = readJsonFile("radar/v2/json/catalog_ts.json");
         mockHttpServer.enqueue(collect);
         mockHttpServer.start();
         CatalogController timeSeriesController = new CatalogController();

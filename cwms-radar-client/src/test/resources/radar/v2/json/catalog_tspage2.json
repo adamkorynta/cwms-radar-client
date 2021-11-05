@@ -1,13 +1,13 @@
 {
-  "next-page": "NjgyMzNTV1QvMTZGRkE2MzYuVk9MVC1CQVRURVJZIExPQUQuSU5TVC4xSE9VUi4wLkNDUC1SRVY7VU5JVFM9Vk9MVHx8fA==",
-  "total": 68233,
+  "next-page": "MFNXVC8xNkZGQTYzNi5WT0xULUJBVFRFUlkgTE9BRC5JTlNULjFIT1VSLjAuQ0NQLVJFVjtVTklUUz1WT0xUfHx8",
+  "total": 68239,
   "page-size": 500,
   "entries": [
     {
       "office": "SWT",
-      "ts-name": "000512.%.Ave.~1Day.0.abc",
-      "units": "%",
-      "full-name": "000512.%.Ave.~1Day.0.abc"
+      "ts-name": "16FFA636.Volt-Battery Load.Inst.1Hour.0.Ccp-Rev",
+      "units": "volt",
+      "full-name": "16FFA636.Volt-Battery Load.Inst.1Hour.0.Ccp-Rev"
     },
     {
       "office": "SWT",

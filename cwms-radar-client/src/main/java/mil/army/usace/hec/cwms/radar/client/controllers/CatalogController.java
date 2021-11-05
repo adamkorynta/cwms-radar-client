@@ -11,6 +11,7 @@ import java.io.IOException;
 import mil.army.usace.hec.cwms.http.client.ApiConnectionInfo;
 import mil.army.usace.hec.cwms.http.client.HttpRequestBuilder;
 import mil.army.usace.hec.cwms.http.client.HttpRequestResponse;
+import mil.army.usace.hec.cwms.radar.client.model.LocationCatalog;
 import mil.army.usace.hec.cwms.radar.client.model.RadarObjectMapper;
 import mil.army.usace.hec.cwms.radar.client.model.TimeSeriesCatalog;
 
@@ -21,5 +22,12 @@ public final class CatalogController {
             .addEndpointInput(input)
             .execute();
         return RadarObjectMapper.mapJsonToObject(response.getBody(), TimeSeriesCatalog.class);
+    }
+
+    public LocationCatalog retrieveLocationCatalog(ApiConnectionInfo apiConnectionInfo, LocationCatalogEndpointInput input) throws IOException {
+        HttpRequestResponse response = new HttpRequestBuilder(apiConnectionInfo, "catalog/locations")
+            .addEndpointInput(input)
+            .execute();
+        return RadarObjectMapper.mapJsonToObject(response.getBody(), LocationCatalog.class);
     }
 }

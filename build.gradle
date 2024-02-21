@@ -29,6 +29,7 @@ subprojects {
 
     checkstyle {
         toolVersion '9.0.1'
+        sourceSets = [sourceSets.main]
     }
 
     jacoco {
